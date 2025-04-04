@@ -9,10 +9,10 @@
 <body>
     <!-- nav_start -->
     <header>
-        <nav class="nav container">
+        <nav class="nav">
             <div class="nav__leftSection">
                 <a href="" class="nav__logo">Node</a>
-                <div class="nav_links">
+                <div class="nav__links">
                     <a href="" class="nav__items">Learn</a>
                     <a href="" class="nav__items">About</a>
                     <a href="" class="nav__items">Blog</a>
@@ -25,6 +25,7 @@
                 </div>
             </div>
             <div class="nav__rightSection">
+                <img src="./img/bars.svg" alt="" class="nav__mobileLinks">
                 <a href="#" class="nav__searchButton">Start typing...<span class="nav__searchButtonShortcut">Ctrl+K</span></a>
             </div>
         </nav>
@@ -32,15 +33,25 @@
     <!-- nav_end -->
     <main>
         <!-- heroSection_start -->
-        <div class="heroSection container">
+        <div class="heroSection">
             <div class="heroSection__glowEffect"></div>
-            <div class="heroSection__desc">
+            <div class="heroSection__text">
                 <h1 class="heroSection__header">Run Javascript <br> Everywhere</h1>
                 <p class="heroSection__description">Node.js is a free, open-source, cross platform javascript runtime environment that lets developers create servers, web apps, command line tools and scripts</p>
-                <a href="" class="button"><span class="btn--text">Download Node.js (LTS) </span><div class="btn--glow"></div></a>
+                <a href="" class="button"><span class="button--text">Download Node.js (LTS) </span><div class="button--glow"></div></a>
+                <p class="heroSection__subDescription">
+                    Download Node.js v22.14.0 with long term support.<br> 
+                    Node js can aslo be installed 
+                    <a href="" class="button--secondary">via version managers.</a><br>
+                </p>
+                <p class="heroSection__subDescription">
+                    Want new features sooner? Get Node.js
+                    <a href="" class="button--secondary">v23.11.0</a>
+                    instead.
+                </p>
             </div>
             <div class="heroSection__image">
-
+                <img src="./img/hero_img.png" alt="" class="hero_img">
             </div>
         </div>
         <!-- heroSection_end -->

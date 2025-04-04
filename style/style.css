@@ -6,35 +6,52 @@ body{
     padding: 0;
     font-family: Inter;
 }
-.container{
-    padding-left: 3rem;
-    padding-right: 3rem;
-}
 .button{
+    position: relative;
     display: block;
     text-align: center;
     background-color: #111D1E;
-    padding: 1rem;
+    padding: 1.5rem;
     border: 1px solid #203927;
     border-radius: 8px;
-    position: relative;
-    overflow: hidden;
+    overflow: clip;
 }
-.btn--text{
+.button--text{
     position: absolute;
+    transform-origin: center center;
     bottom: 50%;
-    /* left: 50%; */
-    transform: translateX(-50%);
+    left: 50%;
+    transform: translate(-50%, 50%);
+    z-index: 99;
+    color: #ffff;
 }
-.btn--glow{
+.button--glow{
     position: absolute;
-    height: 60px;
-    width: 60px;
-    background-image: radial-gradient(closest-side, rgba(0, 253, 42, 0.21), rgb(17, 29, 30, 0.5));
+    height: 80px;
+    width: 80px;
+    background-image: radial-gradient(closest-side, rgba(0, 253, 42, 0.21), rgb(17, 29, 30, 0));
     backdrop-filter: blur(200px);
     bottom: 10%;
     left: 50%;
     transform: translateX(-50%);
+}
+.button:hover{
+    transition: 0.5s;
+    background-color: #417E38;
+}
+.button:hover .button--glow{
+    transition: 0.5s;
+    background-image: radial-gradient(closest-side, rgba(0, 253, 42, 0.35), rgb(17, 29, 30, 0));
+    height: 500px;
+    width: 500px;
+}
+.button--secondary{
+    color: #5dd44b;
+    text-decoration: none;
+}
+.button--secondary:hover{
+    color: #417E38;
+    transition: 0.5s;
 }
 .nav{
     position: fixed;
@@ -52,6 +69,10 @@ body{
     display: flex;
     gap: 3rem;
     align-items: center;
+    margin-left: 4rem;
+}
+.nav__rightSection{
+    margin-right: 4rem;
 }
 .nav__logo{
     font-size: 18px;
@@ -68,7 +89,6 @@ body{
     color: #eeeeee;
 }
 .nav__searchButton{
-    margin-right: 5.5rem;
     color: #eeeeee;
     font-size: 14px;
     text-decoration: none;
@@ -86,18 +106,41 @@ body{
     padding: 0.4rem 0.6rem;
     border-radius: 0.5rem;
 }
-.heroSection{
-    display: flex;
-    height: 80vh;
-    position: relative;
-    overflow: hidden;
-    padding-top: 159px;
+.nav__mobileLinks{
+    display: none;
+    height: 18px;
 }
-.heroSection__desc{
-    width: 60%;
+.heroSection{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+    padding-top: 111px;
+    overflow-x: hidden;
+}
+.heroSection__glowEffect{
+    position: absolute;
+    height: 800px;
+    width: 800px;
+    background-image: radial-gradient(closest-side, rgb(65, 126, 56, 0.21), #0D121C);
+    top: -50%;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: -1;
+    background-color: transparent;
+    backdrop-filter: blur(20px);
+}
+.heroSection__text{
+    margin-left: 4rem;
 }
 .heroSection__image{
-    width: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    height: 100%;
+    margin-right: 4rem;
 }
 .heroSection__header{
     font-size: 3.5rem;
@@ -105,20 +148,58 @@ body{
     font-weight: 400;
 }
 .heroSection__description{
+    width: 100%;
+    height: 100%;
     font-size: 18px;
     color: #eeeeee;
     font-weight: 300;
     line-height: 150%;
     margin: 1.5rem 0;
 }
-.heroSection__glowEffect{
-    position: absolute;
-    height: 1000px;
-    width: 1000px;
-    background-image: radial-gradient(closest-side, rgba(46, 252, 80, 0.21), #0D121C);
-    top: -400px;
-    left: 10%;
-    z-index: -1;
-    background-color: transparent;
-    backdrop-filter: blur(20px);
+.heroSection__subDescription{
+    font-size: 14px;
+    margin-top: 1.5rem;
+    color: rgba(255, 255, 255);
+    line-height: 150%;
+}
+@media (max-width:767px) {
+    .nav__searchButton{
+        display: none;
+    }
+    .nav__mobileLinks{
+        display: inline;
+        margin-left: auto;
+    }
+    .nav__links{
+        display: none;
+    }
+    .heroSection{
+        grid-template-columns: 100%;
+        grid-template-rows: 1fr 1fr;
+        gap: 4rem;
+        text-align: center;
+    }
+    .heroSection__image{
+        justify-content: center;
+        align-items: flex-start;
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
+    }
+    .heroSection__image img{
+        width: 100%;
+        max-width: 433px;
+    }
+    .nav__leftSection{
+        margin-left: 1.5rem;
+    }
+    .nav__rightSection{
+        margin-right: 1.5rem;
+    }
+    .heroSection__text{
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
+    }
+    .heroSection__subDescription{
+        
+    }
 }
